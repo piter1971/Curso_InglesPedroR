@@ -1,0 +1,512 @@
+unit Unit2;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.TabNotBk,
+  Vcl.Imaging.jpeg, Vcl.StdCtrls, Vcl.Buttons, Vcl.Samples.Gauges;
+
+type
+  TCurso = class(TForm)
+    TabbedNotebook1: TTabbedNotebook;
+    Panel1: TPanel;
+    Image1: TImage;
+    Image2: TImage;
+    Image3: TImage;
+    Image4: TImage;
+    Image6: TImage;
+    Image7: TImage;
+    Image8: TImage;
+    Image9: TImage;
+    Panel2: TPanel;
+    GroupBox1: TGroupBox;
+    RadioButton1: TRadioButton;
+    RadioButton2: TRadioButton;
+    RadioButton3: TRadioButton;
+    GroupBox2: TGroupBox;
+    RadioButton4: TRadioButton;
+    RadioButton5: TRadioButton;
+    RadioButton6: TRadioButton;
+    GroupBox3: TGroupBox;
+    RadioButton7: TRadioButton;
+    RadioButton8: TRadioButton;
+    RadioButton9: TRadioButton;
+    GroupBox4: TGroupBox;
+    RadioButton10: TRadioButton;
+    RadioButton11: TRadioButton;
+    RadioButton12: TRadioButton;
+    GroupBox5: TGroupBox;
+    RadioButton13: TRadioButton;
+    RadioButton14: TRadioButton;
+    RadioButton15: TRadioButton;
+    GroupBox6: TGroupBox;
+    RadioButton16: TRadioButton;
+    RadioButton17: TRadioButton;
+    RadioButton18: TRadioButton;
+    GroupBox7: TGroupBox;
+    RadioButton19: TRadioButton;
+    RadioButton20: TRadioButton;
+    RadioButton21: TRadioButton;
+    GroupBox8: TGroupBox;
+    RadioButton22: TRadioButton;
+    RadioButton23: TRadioButton;
+    RadioButton24: TRadioButton;
+    Label1: TLabel;
+    Label2: TLabel;
+    Verificar: TButton;
+    Reiniciar: TButton;
+    Panel3: TPanel;
+    Label3: TLabel;
+    Panel4: TPanel;
+    PnlFondo5: TPanel;
+    PnlFondo6: TPanel;
+    BtnA: TBitBtn;
+    BtnB: TBitBtn;
+    BtnC: TBitBtn;
+    BtnD: TBitBtn;
+    BtnE: TBitBtn;
+    BtnF: TBitBtn;
+    BtnG: TBitBtn;
+    BtnH: TBitBtn;
+    BtnN: TBitBtn;
+    BtnO: TBitBtn;
+    BtnP: TBitBtn;
+    BtnQ: TBitBtn;
+    BtnM: TBitBtn;
+    PnlFondo1: TPanel;
+    PnlFondo4: TPanel;
+    Panel7: TPanel;
+    Label4: TLabel;
+    Pnl1S: TPanel;
+    Pnl1H: TPanel;
+    Pnl1O: TPanel;
+    Pnl1R: TPanel;
+    Pnl1T: TPanel;
+    Panel5: TPanel;
+    Label7: TLabel;
+    Pnl4H: TPanel;
+    Pnl4A: TPanel;
+    Pnl4P: TPanel;
+    Pnl4P2: TPanel;
+    Pnl4Y: TPanel;
+    Label8: TLabel;
+    Pnl5Y: TPanel;
+    Pnl5O: TPanel;
+    Pnl5U: TPanel;
+    Pnl5N: TPanel;
+    Pnl5G: TPanel;
+    Label9: TLabel;
+    Pnl6D: TPanel;
+    Pnl6I: TPanel;
+    Pnl6R: TPanel;
+    Pnl6T: TPanel;
+    Pnl6Y: TPanel;
+    BtnJ: TBitBtn;
+    BtnK: TBitBtn;
+    BtnL: TBitBtn;
+    BtnI: TBitBtn;
+    BtnR: TBitBtn;
+    BtnS: TBitBtn;
+    BtnT: TBitBtn;
+    BtnU: TBitBtn;
+    BtnV: TBitBtn;
+    BtnW: TBitBtn;
+    BtnX: TBitBtn;
+    BtnY: TBitBtn;
+    BtnZ: TBitBtn;
+    PnlFondo2: TPanel;
+    PnlFondo3: TPanel;
+    Label5: TLabel;
+    Pnl2T: TPanel;
+    Pnl2H: TPanel;
+    Pnl2I: TPanel;
+    Pnl2N: TPanel;
+    Pnl3H: TPanel;
+    Label6: TLabel;
+    Pnl3O: TPanel;
+    Pnl3T: TPanel;
+    BarraPorcentaje: TGauge;
+    TimerBarra: TTimer;
+    procedure VerificarClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure ReiniciarClick(Sender: TObject);
+    procedure BtnSClick(Sender: TObject);
+    procedure BtnHClick(Sender: TObject);
+    procedure BtnOClick(Sender: TObject);
+    procedure BtnRClick(Sender: TObject);
+    procedure BtnTClick(Sender: TObject);
+
+    procedure BtnIClick(Sender: TObject);
+    procedure BtnNClick(Sender: TObject);
+
+
+    procedure BtnAClick(Sender: TObject);
+    procedure BtnPClick(Sender: TObject);
+
+    procedure Pnl4PClick(Sender: TObject);
+    procedure BtnYClick(Sender: TObject);
+
+    procedure BtnUClick(Sender: TObject);
+    procedure BtnGClick(Sender: TObject);
+    procedure BtnDClick(Sender: TObject);
+    procedure TimerBarraTimer(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Curso: TCurso;
+  PuntuacionNivel1 : integer;
+  contador :integer;
+
+implementation
+
+{$R *.dfm}
+
+procedure TCurso.ReiniciarClick(Sender: TObject);
+begin
+PuntuacionNivel1:=0;
+Label2.Caption:=IntToStr(PuntuacionNivel1);
+with GroupBox1 do
+RadioButton1.Checked:=false;
+RadioButton2.Checked:=false;
+RadioButton3.Checked:=false;
+with GroupBox2 do
+RadioButton4.Checked:=false;
+RadioButton5.Checked:=false;
+RadioButton6.Checked:=false;
+with GroupBox3 do
+RadioButton7.Checked:=false;
+RadioButton8.Checked:=false;
+RadioButton9.Checked:=false;
+with GroupBox4 do
+RadioButton10.Checked:=false;
+RadioButton11.Checked:=false;
+RadioButton12.Checked:=false;
+with GroupBox5 do
+RadioButton13.Checked:=false;
+RadioButton14.Checked:=false;
+RadioButton15.Checked:=false;
+with GroupBox6 do
+RadioButton16.Checked:=false;
+RadioButton17.Checked:=false;
+RadioButton18.Checked:=false;
+with GroupBox7 do
+RadioButton19.Checked:=false;
+RadioButton20.Checked:=false;
+RadioButton21.Checked:=false;
+with GroupBox8 do
+RadioButton22.Checked:=false;
+RadioButton23.Checked:=false;
+RadioButton24.Checked:=false;
+
+Verificar.Enabled:=true;
+
+end;
+
+
+
+procedure TCurso.TimerBarraTimer(Sender: TObject);
+begin
+BarraPorcentaje.Progress:=contador;
+inc(contador);
+if (contador=11) then
+       TimerBarra.Enabled:=false;
+
+end;
+
+procedure TCurso.BtnRClick(Sender: TObject);
+begin
+with PnlFondo1  do
+Pnl1R.Visible:=true;
+if Pnl1s.Visible and Pnl1H.Visible and Pnl1O.Visible and Pnl1R.Visible
+and Pnl1T.Visible then
+PnlFondo2.Visible:=true;
+if PnlFondo6.Visible then
+with PnlFondo6 do
+Pnl6R.Visible:=true;
+
+end;
+
+procedure TCurso.BtnSClick(Sender: TObject);
+begin
+with PnlFondo1  do
+Pnl1S.Visible:=true;
+if Pnl1s.Visible and Pnl1H.Visible and Pnl1O.Visible and Pnl1R.Visible
+and Pnl1T.Visible then
+PnlFondo2.Visible:=true;
+
+
+end;
+
+procedure TCurso.BtnAClick(Sender: TObject);
+begin
+with PnlFondo4 do
+pnl4A.Visible:=true;
+if Pnl4H.Visible and Pnl4A.Visible and Pnl4P.Visible and
+ Pnl4P2.Visible and Pnl4Y.Visible then
+ PnlFondo5.Visible:=true;
+end;
+
+procedure TCurso.BtnDClick(Sender: TObject);
+begin
+if PnlFondo6.Visible then
+with PnlFondo6 do
+Pnl6D.Visible:=true;
+
+end;
+
+procedure TCurso.BtnGClick(Sender: TObject);
+begin
+if PnlFondo5.Visible then
+   with   PnlFondo5 do
+   Pnl5G.Visible:=true;
+if  Pnl5Y.Visible and Pnl5O.Visible and Pnl5U.Visible and
+       Pnl5G.Visible   then
+       PnlFondo6.Visible:=true;
+
+
+
+end;
+
+procedure TCurso.BtnHClick(Sender: TObject);
+begin
+ with PnlFondo1 do
+ Pnl1H.Visible:=true;
+  if Pnl1s.Visible and Pnl1H.Visible and Pnl1O.Visible and Pnl1R.Visible
+and Pnl1T.Visible then
+     PnlFondo2.Visible:=true;
+if PnlFondo2.Visible then
+    with PnlFondo2  do
+   Pnl2H.Visible:=true;
+if Pnl2T.Visible and Pnl2H.Visible and Pnl2I.Visible and Pnl2N.Visible
+then
+PnlFondo3.Visible:=true;
+with PnlFondo3 do
+Pnl3H.Visible:=true;
+if pnl3H.Visible and pnl3O.Visible and pnl3T.Visible then
+  Pnl4H.Visible:=true;
+  with PnlFondo4 do
+  pnl4H.Visible:=true;
+  if Pnl4H.Visible and Pnl4A.Visible and Pnl4P.Visible and
+ Pnl4P2.Visible and Pnl4Y.Visible then
+ PnlFondo5.Visible:=true;
+end;
+
+procedure TCurso.BtnNClick(Sender: TObject);
+begin
+   with PnlFondo2  do
+    Pnl2N.Visible:=true;
+    {Comprobando panel2 comletado THIN}
+if Pnl2T.Visible and Pnl2H.Visible and Pnl2I.Visible and Pnl2N.Visible
+then
+    {Activando PnlFondo3}
+    PnlFondo3.Visible:=true;
+if PnlFondo3.Visible and PnlFondo4.Visible then
+    PnlFondo5.Visible:=true;
+
+if PnlFondo5.Visible then
+   with PnlFondo5 do
+   Pnl5N.Visible:=true;
+if  Pnl5Y.Visible and Pnl5O.Visible and Pnl5U.Visible and
+       Pnl5G.Visible   then
+       PnlFondo6.Visible:=true;
+
+
+end;
+
+procedure TCurso.BtnTClick(Sender: TObject);
+begin
+with PnlFondo1  do
+    Pnl1T.Visible:=true;
+    {Comprobacion de panel completo para activar panel 2}
+if Pnl1s.Visible and Pnl1H.Visible and Pnl1O.Visible and Pnl1R.Visible
+    and Pnl1T.Visible then
+    {Si se cumple la condicion activamos PanelFondo2}
+    PnlFondo2.Visible:=true;
+if PnlFondo2.Visible then
+    PNL2T.Visible:=TRUE;
+    {comprobacion de panel2  completado}
+if Pnl2T.Visible and Pnl2H.Visible and Pnl2I.Visible and Pnl2N.Visible then
+      {activando panelFondo3}
+      PnlFondo3.Visible:=true;
+if PnlFondo3.Visible then
+      with PnlFondo3 do
+      pnl3T.Visible:=true;
+      {Comprobacion Panel3 Completado}
+if pnl3H.Visible and pnl3O.Visible  and pnl3T.Visible then
+      {Activando PnlFondo4}
+      PnlFondo4.Visible:=true;
+      {Comprobando Panel4 Completado}
+if Pnl4H.Visible and Pnl4A.Visible and Pnl4P.Visible and
+      Pnl4P2.Visible and Pnl4Y.Visible then
+       PnlFondo5.Visible:=true;
+       {Comprobando Panel5 Completado}
+if Pnl5Y.Visible and Pnl5O.Visible and Pnl5U.Visible and Pnl5N.Visible
+      and Pnl5G.Visible  then
+      {Activando panel 6}
+      PnlFondo6.Visible:=true;
+if PnlFondo6.Visible then
+    with PnlFondo6 do
+   Pnl6T.Visible:=true;
+
+end;
+
+procedure TCurso.BtnUClick(Sender: TObject);
+begin
+if PnlFondo5.Visible then
+ With PnlFondo5 do
+ Pnl5U.Visible:=true;
+if  Pnl5Y.Visible and Pnl5O.Visible and Pnl5U.Visible and
+       Pnl5G.Visible   then
+       PnlFondo6.Visible:=true;
+
+end;
+
+procedure TCurso.BtnYClick(Sender: TObject);
+begin
+with PnlFondo4 do
+pnl4Y.Visible:=true;
+if Pnl4H.Visible and Pnl4A.Visible and Pnl4P.Visible and
+ Pnl4P2.Visible and Pnl4Y.Visible then
+ PnlFondo5.Visible:=true;
+ if PnlFondo5.Visible then
+
+ with PnlFondo5 do
+ Pnl5Y.Visible:=true;
+
+ if PnlFondo6.Visible then
+   with PnlFondo6 do
+    pnl6Y.Visible:=true;
+if  Pnl5Y.Visible and Pnl5O.Visible and Pnl5U.Visible and
+       Pnl5G.Visible   then
+       PnlFondo6.Visible:=true;
+
+end;
+
+procedure TCurso.BtnIClick(Sender: TObject);
+begin
+with PnlFondo1  do
+Pnl2I.Visible:=true;
+if Pnl2T.Visible and Pnl2H.Visible and Pnl2I.Visible and Pnl2N.Visible
+then
+PnlFondo3.Visible:=true;
+if PnlFondo6.Visible then
+with PnlFondo6 do
+ pnl6I.Visible:=true;
+
+end;
+
+procedure TCurso.BtnOClick(Sender: TObject);
+begin
+with PnlFondo1  do
+Pnl1O.Visible:=true;
+if Pnl1s.Visible and Pnl1H.Visible and Pnl1O.Visible and Pnl1R.Visible
+and Pnl1T.Visible then
+PnlFondo2.Visible:=true;
+if Pnl2T.Visible and Pnl2H.Visible and Pnl2I.Visible and Pnl2N.Visible then
+ PnlFondo3.Visible:=true;
+ with PnlFondo3 do
+ pnl3O.Visible:=true;
+ if PnlFondo5.Visible then
+ with pnlFondo5 do
+ Pnl5O.Visible:=true;
+if  Pnl5Y.Visible and Pnl5O.Visible and Pnl5U.Visible and
+       Pnl5G.Visible   then
+       PnlFondo6.Visible:=true;
+end;
+
+procedure TCurso.BtnPClick(Sender: TObject);
+begin
+with PnlFondo4 do
+Pnl4P.Visible:=true;
+Pnl4P2.Visible:=true;
+if Pnl4H.Visible and Pnl4A.Visible and Pnl4P.Visible and
+ Pnl4P2.Visible and Pnl4Y.Visible then
+ PnlFondo5.Visible:=true;
+end;
+
+procedure TCurso.FormCreate(Sender: TObject);
+begin
+PuntuacionNivel1:=0;
+contador:=0;
+PnlFondo2.Visible:=false;
+PnlFondo3.Visible:=false;
+PnlFondo4.Visible:=false;
+PnlFondo5.Visible:=false;
+PnlFondo6.Visible:=false;
+
+end;
+
+
+
+
+
+
+
+
+
+
+procedure TCurso.Pnl4PClick(Sender: TObject);
+begin
+with PnlFondo4 do
+pnl4P.Visible:=true;
+Pnl4P2.Visible:=true;
+end;
+
+procedure TCurso.VerificarClick(Sender: TObject);
+begin
+with GroupBox1 do
+if RadioButton2.Checked then
+begin
+inc(PuntuacionNivel1 )
+end;
+with GroupBox2 do
+if RadioButton4.Checked then
+begin
+       inc(PuntuacionNivel1 )
+end;
+with GroupBox3 do
+if RadioButton8.Checked then
+begin
+       inc(PuntuacionNivel1 )
+end;
+with GroupBox4 do
+if RadioButton12.Checked then
+begin
+       inc(PuntuacionNivel1 )
+end;
+with GroupBox5 do
+if RadioButton15.Checked then
+begin
+       inc(PuntuacionNivel1 )
+end;
+with GroupBox6 do
+if RadioButton18.Checked then
+begin
+       inc(PuntuacionNivel1 )
+end;
+with GroupBox7 do
+if RadioButton20.Checked then
+begin
+       inc(PuntuacionNivel1 )
+end;
+with GroupBox8 do
+if RadioButton22.Checked then
+begin
+       inc(PuntuacionNivel1 )
+end;
+label2.Caption:=IntToStr(PuntuacionNivel1);
+
+ Verificar.Enabled:=false;
+
+
+
+
+end;
+
+end.
